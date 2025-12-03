@@ -1,3 +1,76 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "img_gen_art",
+      "description": "Abstract generative art",
+      "imageUrl": "https://images.unsplash.com/photo-1541512416146-3cf58d6b27cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMGFydHxlbnwwfHx8fDE3NjQ3NTcxMjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract art"
+    },
+    {
+      "id": "img_writer_assist",
+      "description": "Writer assistant interface",
+      "imageUrl": "https://images.unsplash.com/photo-1625230772516-984365ca9152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3cml0aW5nJTIwdGV4dHxlbnwwfHx8fDE3NjQ3Nzk1NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "writing text"
+    },
+    {
+      "id": "img_code_gen",
+      "description": "Code generation screen",
+      "imageUrl": "https://images.unsplash.com/photo-1658274474930-bb27a64022c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc2NDc2ODkxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "img_voice_synth",
+      "description": "Voice waveform",
+      "imageUrl": "https://images.unsplash.com/photo-1617994452722-4145e196248b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzb3VuZCUyMHdhdmV8ZW58MHx8fHwxNzY0ODA1NzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sound wave"
+    },
+    {
+      "id": "img_task_manager",
+      "description": "Productivity task manager",
+      "imageUrl": "https://images.unsplash.com/photo-1644329771977-0a8c6e3928ae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0by1kbyUyMGxpc3R8ZW58MHx8fHwxNzY0ODA1NzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "to-do list"
+    },
+    {
+      "id": "img_photo_enhancer",
+      "description": "Photo enhancement tool",
+      "imageUrl": "https://images.unsplash.com/photo-1580852300513-9b50125bf293?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjYW1lcmElMjBsZW5zfGVufDB8fHx8MTc2NDc0ODAyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "camera lens"
+    },
+    {
+      "id": "img_code_debugger",
+      "description": "Code debugging interface",
+      "imageUrl": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkZWJ1Z2dlciUyMGNvZGV8ZW58MHx8fHwxNzY0ODA1NzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "debugger code"
+    },
+    {
+      "id": "img_music_composer",
+      "description": "AI music composition",
+      "imageUrl": "https://images.unsplash.com/photo-1717699841805-e80424b1be43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtdXNpYyUyMG5vdGVzfGVufDB8fHx8MTc2NDc0MzUzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "music notes"
+    },
+    {
+      "id": "img_email_sorter",
+      "description": "Automated email inbox",
+      "imageUrl": "https://images.unsplash.com/photo-1557200134-90327ee9fafa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxlbWFpbCUyMGluYm94fGVufDB8fHx8MTc2NDgwNTc0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "email inbox"
+    },
+    {
+      "id": "img_logo_designer",
+      "description": "AI logo design tool",
+      "imageUrl": "https://images.unsplash.com/3/doctype-hi-res.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2dvJTIwZGVzaWdufGVufDB8fHx8MTc2NDcyNjYwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logo design"
+    },
+    {
+      "id": "img_script_writer",
+      "description": "AI script writing assistant",
+      "imageUrl": "https://images.unsplash.com/photo-1658729148855-9bb11e92e647?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY3JlZW5wbGF5JTIwc2NyaXB0fGVufDB8fHx8MTc2NDgwNTc0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "screenplay script"
+    },
+    {
+      "id": "img_website_builder",
+      "description": "AI website builder interface",
+      "imageUrl": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3ZWJzaXRlJTIwYnVpbGRlcnxlbnwwfHx8fDE3NjQ3NzU3NjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "website builder"
+    }
+  ]
 }
