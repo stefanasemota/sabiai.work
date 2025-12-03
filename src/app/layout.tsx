@@ -1,10 +1,10 @@
 import type {Metadata} from 'next';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Synapse AI Launchpad',
-  description: 'A sleek, futuristic launchpad for discovering and managing AI apps.',
+  title: 'SABI AI - Knowledge at Work',
+  description:
+    'Niche Productivity & AI Solutions.',
 };
 
 export default function RootLayout({
@@ -15,14 +15,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
       </head>
-      <body className="font-body antialiased">
+      <body className="antialiased flex flex-col justify-between items-center py-16 px-4">
         {children}
-        <Toaster />
       </body>
     </html>
   );

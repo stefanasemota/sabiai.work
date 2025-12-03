@@ -1,71 +1,137 @@
-"use client";
-
-import * as React from "react";
-import { AppLayout } from "@/components/app-layout";
-import { AppCard } from "@/components/app-card";
-import { apps, AppCategory } from "@/lib/apps-data";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { motion, AnimatePresence } from "framer-motion";
-
-const categories: AppCategory[] = [
-  "Text",
-  "Image",
-  "Code",
-  "Audio",
-  "Productivity",
-];
+import {
+  MessageCircle,
+  Filter,
+  Handshake,
+  AlertTriangle,
+} from 'lucide-react';
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] =
-    React.useState<AppCategory | "all">("all");
-
-  const filteredApps =
-    selectedCategory === "all"
-      ? apps
-      : apps.filter((app) => app.category === selectedCategory);
-
   return (
-    <AppLayout>
-      <div className="flex-1 space-y-8 p-4 md:p-8 pt-6">
-        <div className="flex items-center justify-between space-y-2">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight font-headline text-primary">
-            AI App Directory
+    <>
+      <main className="w-full max-w-5xl mx-auto">
+        <header className="text-center mb-16">
+          <h1 className="text-6xl md:text-7xl font-extrabold mb-4 leading-none">
+            <span className="text-gradient">SABI AI</span>{' '}
           </h1>
-        </div>
-        <p className="text-muted-foreground">
-          Browse and discover the next generation of AI-powered applications.
-        </p>
-        <Tabs
-          defaultValue="all"
-          className="space-y-4"
-          onValueChange={(value) => setSelectedCategory(value as any)}
-        >
-          <TabsList>
-            <TabsTrigger value="all">All</TabsTrigger>
-            {categories.map((category) => (
-              <TabsTrigger key={category} value={category}>
-                {category}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <p className="text-2xl md:text-3xl font-light text-gray-400 max-w-3xl mx-auto">
+            Knowledge at Work:{' '}
+            <strong className="text-gradient">Niche Productivity</strong> & AI
+            Solutions.{' '}
+          </p>
+        </header>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedCategory}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
+        <hr className="border-gray-700 mb-12" />
+
+        <section id="projects">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+            The Work
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a
+              href="https://naijaspeak.sabiai.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-yellow-500"
             >
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {filteredApps.map((app) => (
-                  <AppCard key={app.id} app={app} />
-                ))}
+              <div className="flex items-center space-x-4">
+                <i className="fas fa-comment-dots text-yellow-400 text-3xl"></i>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    NaijaSpeak
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    naijaspeak.sabiai.work
+                  </p>
+                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </Tabs>
-      </div>
-    </AppLayout>
+              <p className="mt-4 text-gray-300">
+                An AI-driven language tool for translating and understanding
+                Nigerian Pidgin English in context.
+              </p>
+            </a>
+
+            <a
+              href="https://refine.sabiai.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500"
+            >
+              <div className="flex items-center space-x-4">
+                <i className="fas fa-filter text-purple-400 text-3xl"></i>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">Refine</h3>{' '}
+                  <p className="text-sm text-gray-400">refine.sabiai.work</p>
+                </div>
+              </div>
+              <p className="mt-4 text-gray-300">
+                The ultimate toolkit for prompt engineers to structure, save,
+                and iterate on complex AI prompts.
+              </p>
+            </a>
+
+            <a
+              href="https://facilitator.sabiai.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-teal-500"
+            >
+              <div className="flex items-center space-x-4">
+                <i className="fas fa-handshake text-teal-400 text-3xl"></i>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    Facilitator
+                  </h3>{' '}
+                  <p className="text-sm text-gray-400">
+                    facilitator.sabiai.work
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-gray-300">
+                An agile coaching assistant to generate dynamic meeting agendas,
+                retrospectives, and team-building exercises.
+              </p>
+            </a>
+
+            <a
+              href="https://mumu.monitor.sabiai.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-red-500"
+            >
+              <div className="flex items-center space-x-4">
+                <i className="fas fa-exclamation-triangle text-red-400 text-3xl"></i>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    Mumu Monitor
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    mumu.monitor.sabiai.work
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-gray-300">
+                A focused utility for monitoring specific, simple operational
+                data—no nonsense, just the essentials.
+              </p>
+            </a>
+          </div>
+        </section>
+      </main>
+      <footer className="mt-16 text-center text-gray-600">
+        <p className="text-sm">
+          Powered by Firebase & Hostpoint. Built by Stefan Asemota.
+        </p>
+        <p className="text-sm mt-1">
+          <a
+            href="https://asemota.ch"
+            target="_blank"
+            className="hover:text-teal-400 transition duration-200"
+          >
+            View Personal Portfolio
+          </a>
+        </p>
+      </footer>
+    </>
   );
 }
