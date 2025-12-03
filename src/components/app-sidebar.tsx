@@ -58,18 +58,6 @@ export function AppSidebar() {
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={pathname === "/recommendations"}
-                tooltip="AI Recommendations"
-              >
-                <Link href="/recommendations">
-                  <Sparkles />
-                  <span>Recommendations</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
           </SidebarMenu>
 
           <SidebarSeparator className="my-4" />
