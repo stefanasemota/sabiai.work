@@ -7,16 +7,16 @@ import {
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col justify-between items-center min-h-screen py-16 px-4">
       <main className="w-full max-w-5xl mx-auto">
         <header className="text-center mb-16">
           <h1 className="text-6xl md:text-7xl font-extrabold mb-4 leading-none">
-            <span className="text-gradient">SABI AI</span>{' '}
+            <span className="text-gradient">SABI AI</span>
           </h1>
           <p className="text-2xl md:text-3xl font-light text-gray-400 max-w-3xl mx-auto">
             Knowledge at Work:{' '}
             <strong className="text-gradient">Niche Productivity</strong> & AI
-            Solutions.{' '}
+            Solutions.
           </p>
         </header>
 
@@ -35,7 +35,7 @@ export default function Home() {
               className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-yellow-500"
             >
               <div className="flex items-center space-x-4">
-                <i className="fas fa-comment-dots text-yellow-400 text-3xl"></i>
+                <MessageCircle className="text-yellow-400 h-8 w-8" />
                 <div>
                   <h3 className="text-xl font-semibold text-white">
                     NaijaSpeak
@@ -58,7 +58,7 @@ export default function Home() {
               className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500"
             >
               <div className="flex items-center space-x-4">
-                <i className="fas fa-filter text-purple-400 text-3xl"></i>
+                <Filter className="text-purple-400 h-8 w-8" />
                 <div>
                   <h3 className="text-xl font-semibold text-white">Refine</h3>{' '}
                   <p className="text-sm text-gray-400">refine.sabiai.work</p>
@@ -77,7 +77,7 @@ export default function Home() {
               className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-teal-500"
             >
               <div className="flex items-center space-x-4">
-                <i className="fas fa-handshake text-teal-400 text-3xl"></i>
+                <Handshake className="text-teal-400 h-8 w-8" />
                 <div>
                   <h3 className="text-xl font-semibold text-white">
                     Facilitator
@@ -100,7 +100,7 @@ export default function Home() {
               className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-red-500"
             >
               <div className="flex items-center space-x-4">
-                <i className="fas fa-exclamation-triangle text-red-400 text-3xl"></i>
+                <AlertTriangle className="text-red-400 h-8 w-8" />
                 <div>
                   <h3 className="text-xl font-semibold text-white">
                     Mumu Monitor
@@ -126,12 +126,13 @@ export default function Home() {
           <a
             href="https://asemota.ch"
             target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-teal-400 transition duration-200"
           >
             View Personal Portfolio
           </a>
         </p>
       </footer>
-    </>
+    </div>
   );
 }

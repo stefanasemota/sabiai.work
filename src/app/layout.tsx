@@ -1,5 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
+import { cn } from '@/lib/utils';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'SABI AI - Knowledge at Work',
@@ -14,14 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-      </head>
-      <body className="antialiased flex flex-col justify-between items-center py-16 px-4">
+      <body className={cn("antialiased font-body")}>
         {children}
+        <Toaster />
       </body>
     </html>
   );
