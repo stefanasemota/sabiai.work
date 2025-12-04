@@ -1,9 +1,4 @@
-import {
-  MessageCircle,
-  Filter,
-  Handshake,
-  AlertTriangle,
-} from 'lucide-react';
+import { MessageCircle, Filter, Handshake, AlertTriangle } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -120,7 +115,25 @@ export default function Home() {
       </main>
       <footer className="mt-16 text-center text-gray-600">
         <p className="text-sm">
-          Powered by Firebase & Hostpoint. Built by Stefan Asemota.
+          Powered by{' '}
+          <a
+            href="https://firebase.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-teal-400 transition duration-200"
+          >
+            Firebase
+          </a>{' '}
+          &{' '}
+          <a
+            href="https://www.hostpoint.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-teal-400 transition duration-200"
+          >
+            Hostpoint
+          </a>
+          . Built by Stefan Asemota.
         </p>
       </footer>
     </div>
