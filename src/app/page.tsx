@@ -133,7 +133,7 @@ export default function Home() {
           >
             Hostpoint
           </a>
-          . Built by Stefan Asemota.
+          . Built by sabi ai.
         </p>
       </footer>
     </div>
