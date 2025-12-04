@@ -1,0 +1,189 @@
+{
+  "entities": {
+    "AiApp": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AiApp",
+      "type": "object",
+      "description": "Represents an AI application listed in the Synapse AI Launchpad.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the AI application."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the AI application."
+        },
+        "description": {
+          "type": "string",
+          "description": "A detailed description of the AI application's functionality and features."
+        },
+        "category": {
+          "type": "string",
+          "description": "The category to which the AI application belongs (e.g., 'Image Generation', 'Text Summarization')."
+        },
+        "userRating": {
+          "type": "number",
+          "description": "The average user rating for the AI application.",
+          "format": "float"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL for the AI application's image or logo.",
+          "format": "uri"
+        },
+        "launchUrl": {
+          "type": "string",
+          "description": "URL to launch the AI application.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "category",
+        "userRating",
+        "imageUrl",
+        "launchUrl"
+      ]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user profile within the Synapse AI Launchpad.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user profile."
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's email address.",
+          "format": "email"
+        },
+        "favoriteAppIds": {
+          "type": "array",
+          "description": "References to AiApps. (Relationship: UserProfile 1:N AiApp)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "email"
+      ]
+    },
+    "Recommendation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Recommendation",
+      "type": "object",
+      "description": "Represents an AI-powered recommendation for an AI application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the recommendation."
+        },
+        "userProfileId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N Recommendation)"
+        },
+        "aiAppId": {
+          "type": "string",
+          "description": "Reference to AiApp. (Relationship: AiApp 1:N Recommendation)"
+        },
+        "reason": {
+          "type": "string",
+          "description": "The reason for the recommendation (e.g., 'Based on your past activity', 'Trending in your category')."
+        }
+      },
+      "required": [
+        "id",
+        "userProfileId",
+        "aiAppId",
+        "reason"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/ai_apps/{aiAppId}",
+        "definition": {
+          "entityName": "AiApp",
+          "schema": {
+            "$ref": "#/backend/entities/AiApp"
+          },
+          "description": "Stores AI application data. Assumes a single access model for all apps (e.g., readable by all authenticated users).",
+          "params": [
+            {
+              "name": "aiAppId",
+              "description": "The unique identifier of the AI application."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile data. Path-based ownership ensures only the user can access their profile.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/recommendations/{recommendationId}",
+        "definition": {
+          "entityName": "Recommendation",
+          "schema": {
+            "$ref": "#/backend/entities/Recommendation"
+          },
+          "description": "Stores AI recommendations for each user.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "recommendationId",
+              "description": "The unique identifier of the recommendation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/roles_admin/{userId}",
+        "definition": {
+          "entityName": "RoleAdmin",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Document existence indicates the user is an admin.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the admin user."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support the Synapse AI Launchpad application, focusing on AI app discovery, user profiles, and personalized recommendations. The design prioritizes security, scalability, and debuggability using the principles of Authorization Independence, Structural Segregation, Access Modeling, and Data Clarity.\n\n**Authorization Independence:**\n\n*   The structure avoids hierarchical authorization dependencies by denormalizing authorization context where needed.  Specifically user profile data is not deeply nested, avoiding the need for `get()` calls in security rules to validate user ownership.\n\n**Structural Segregation:**\n\n*   User profiles are stored in a dedicated collection (`/users/{userId}`) ensuring that access is restricted to the profile owner.\n*   AI applications are stored in a top-level collection (`/ai_apps/{aiAppId}`). This assumes that all AI apps have a common access model (e.g., read access for all authenticated users, write access for admins - which would be checked via existence in `/roles_admin/{uid}`). If AI apps required different access models (e.g., public vs. private apps), they should be segregated into different collections (e.g., `/public_ai_apps/{aiAppId}` and `/private_ai_apps/{aiAppId}`).\n\n**Access Modeling:**\n\n*   **User Profiles:** Path-based ownership is used for user profiles (`/users/{userId}`). This allows simple security rules to ensure that only the authenticated user can read/write their profile.\n*   **AI Apps:** Publicly accessible via `/ai_apps/{aiAppId}`.  Admin only access could be controlled by checking the authenticated user's id to see if they exist in `/roles_admin/{uid}`.\n*   **Recommendations:** Path-based ownership from `/users/{userId}/recommendations/{recommendationId}` to connect the user to their AI based recommended apps. This prevents others from accessing these personal recommendations.\n\n**QAPs (Rules are not Filters):**\n\nThe design supports secure `list` operations. User profiles are secured by path-based ownership so listing profiles is not allowed. The AI apps collection allows listing AI apps. Admin only access could be controlled by checking the authenticated user's id to see if they exist in `/roles_admin/{uid}`.\n\n**Data Clarity and Predictability:**\n\nThe structure uses explicit state modeling (though not currently implemented in the schema), predictable schemas, and radical consistency in naming conventions to enhance debuggability. For instance, all IDs are named consistently (e.g., `userId`, `aiAppId`)."
+  }
+}

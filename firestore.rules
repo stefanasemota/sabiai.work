@@ -1,0 +1,164 @@
+/**
+ * Core Philosophy: This ruleset establishes a multi-tiered security model for the Synapse AI Launchpad.
+ * It provides public read access for a catalog of AI applications, strict user-ownership for personal data like
+ * profiles and recommendations, and a role-based access control system for administrative tasks.
+ *
+ * Data Structure:
+ * - /ai_apps/{aiAppId}: A public collection of AI applications, readable by any signed-in user.
+ * - /users/{userId}: A private collection where each user's profile is stored. Access is strictly limited to the document owner.
+ * - /users/{userId}/recommendations/{recommendationId}: A private subcollection for user-specific recommendations, inheriting ownership from the parent user document.
+ * - /roles_admin/{userId}: An administrative collection where the existence of a document signifies that the user is an admin. This collection is not client-writable.
+ *
+ * Key Security Decisions:
+ * - User Isolation: Users can only access their own data within the /users/{userId} tree. Listing all users is explicitly disallowed to protect privacy.
+ * - Admin Privileges: Write access to the global /ai_apps collection is restricted to users designated as administrators via the /roles_admin collection.
+ * - Signed-in Reads: While the AI apps are "public," access is limited to authenticated users (including anonymous users) to provide a baseline of known actors.
+ * - Default Deny: Any path not explicitly matched is inaccessible.
+ *
+ * Denormalization for Authorization:
+ * The security model uses the existence of a document in `/roles_admin/{userId}` to grant administrative privileges. This avoids costly `get()` calls to a user's profile within other rules, leading to faster and more efficient rule execution.
+ *
+ * Structural Segregation:
+ * Public data (`ai_apps`) is stored in a separate top-level collection from private user data (`users`). This segregation provides a clear security boundary, simplifies rules, and ensures that queries for public data cannot accidentally expose private information.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ----------------------------------------------------------------------
+    // Helper Functions
+    // ----------------------------------------------------------------------
+
+    /**
+     * Checks if the user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Checks if the current user's UID matches the provided userId.
+     * This is the foundation of the user-ownership model.
+     */
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    /**
+     * Checks if the document being accessed already exists.
+     * CRITICAL for all update and delete operations.
+     */
+    function isExistingDoc() {
+      return resource != null;
+    }
+
+    /**
+     * Checks if the requesting user has an admin role.
+     * Admin status is determined by the existence of a document
+     * in the /roles_admin collection corresponding to the user's UID.
+     */
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    }
+
+    /**
+     * Validates that the UserProfile being created contains an 'id' field
+     * that matches the user's authentication UID.
+     */
+    function isValidUserProfileOnCreate(userId) {
+      return request.resource.data.id == userId;
+    }
+
+    /**
+     * Enforces immutability of the UserProfile's 'id' field during an update.
+     */
+    function isUserProfileIdImmutable() {
+      return request.resource.data.id == resource.data.id;
+    }
+
+    /**
+     * Validates that the Recommendation being created contains a 'userProfileId'
+     * that matches the parent user's authentication UID.
+     */
+    function isValidRecommendationOnCreate(userId) {
+      return request.resource.data.userProfileId == userId;
+    }
+
+    /**
+     * Enforces immutability of the Recommendation's 'userProfileId' field.
+     */
+    function isRecommendationUserIdImmutable() {
+      return request.resource.data.userProfileId == resource.data.userProfileId;
+    }
+
+    // ----------------------------------------------------------------------
+    // Collection Rules
+    // ----------------------------------------------------------------------
+
+    /**
+     * @description Controls access to the AI applications catalog.
+     * AI apps are readable by any authenticated user but can only be
+     * created, modified, or deleted by an administrator.
+     * @path /ai_apps/{aiAppId}
+     * @allow (get) An authenticated user reads a specific AI app's details.
+     * @deny (create) A non-admin user attempts to add a new AI app.
+     * @principle Implements a "Public Read, Admin Write" access model for shared catalog data.
+     */
+    match /ai_apps/{aiAppId} {
+      allow get, list: if isSignedIn();
+      allow create: if isAdmin();
+      allow update, delete: if isAdmin() && isExistingDoc();
+    }
+
+    /**
+     * @description Secures user profile documents.
+     * A user can create their own profile, and can only read, update,
+     * or delete their own document. Listing all users is forbidden.
+     * @path /users/{userId}
+     * @allow (create) A new user (auth.uid: 'user123') creates their own profile at /users/user123.
+     * @deny (get) A user (auth.uid: 'user456') tries to read /users/user123.
+     * @deny (list) Any user tries to list the /users collection.
+     * @principle Enforces strict data ownership and privacy by restricting access to a user's own data tree.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false;
+      allow create: if isOwner(userId) && isValidUserProfileOnCreate(userId);
+      allow update: if isOwner(userId) && isExistingDoc() && isUserProfileIdImmutable();
+      allow delete: if isOwner(userId) && isExistingDoc();
+
+      /**
+       * @description Secures user-specific AI recommendations.
+       * Recommendations are private and can only be accessed by the user they belong to.
+       * @path /users/{userId}/recommendations/{recommendationId}
+       * @allow (list) A user (auth.uid: 'user123') lists their own recommendations at /users/user123/recommendations.
+       * @deny (get) A user (auth.uid: 'user456') tries to read a recommendation at /users/user123/recommendations/rec_abc.
+       * @principle Inherits ownership from the parent document, ensuring subcollection data remains private.
+       */
+      match /recommendations/{recommendationId} {
+        allow get, list: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidRecommendationOnCreate(userId);
+        allow update: if isOwner(userId) && isExistingDoc() && isRecommendationUserIdImmutable();
+        allow delete: if isOwner(userId) && isExistingDoc();
+      }
+    }
+
+    /**
+     * @description Locks down the admin roles collection.
+     * This collection is used as a lookup table by other security rules (`isAdmin()` function).
+     * No client-side reads or writes are permitted. Admin roles must be managed
+     * server-side (e.g., via the Firebase Console or Admin SDK).
+     * @path /roles_admin/{userId}
+     * @allow (none) No client operation is permitted.
+     * @deny (get, list, create, update, delete) All client-side requests are rejected.
+     * @principle Secures role-defining data by making it inaccessible to clients, preventing privilege escalation.
+     */
+    match /roles_admin/{userId} {
+      allow get: if false;
+      allow list: if false;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}
