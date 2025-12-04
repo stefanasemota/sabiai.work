@@ -122,16 +122,6 @@ export default function Home() {
         <p className="text-sm">
           Powered by Firebase & Hostpoint. Built by Stefan Asemota.
         </p>
-        <p className="text-sm mt-1">
-          <a
-            href="https://asemota.ch"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-teal-400 transition duration-200"
-          >
-            View Personal Portfolio
-          </a>
-        </p>
       </footer>
     </div>
   );
