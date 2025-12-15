@@ -1,3 +1,4 @@
+
 import { MessageCircle, Filter, Handshake, AlertTriangle } from 'lucide-react';
 
 export default function Home() {
@@ -62,11 +63,8 @@ export default function Home() {
               </p>
             </div>
 
-            <a
-              href="https://facilitator.sabiai.work"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-teal-500"
+            <div
+              className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-teal-500 opacity-50 cursor-not-allowed"
             >
               <div className="flex items-center space-x-4">
                 <Handshake className="text-teal-400 h-8 w-8" />
@@ -83,7 +81,7 @@ export default function Home() {
                 An agile coaching assistant to generate dynamic meeting agendas,
                 retrospectives, and team-building exercises.
               </p>
-            </a>
+            </div>
 
             <a
               href="https://mumu.monitor.sabiai.work"
