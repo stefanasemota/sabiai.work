@@ -46,11 +46,8 @@ export default function Home() {
               </p>
             </a>
 
-            <a
-              href="https://refine.sabiai.work"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500"
+            <div
+              className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500 opacity-50 cursor-not-allowed"
             >
               <div className="flex items-center space-x-4">
                 <Filter className="text-purple-400 h-8 w-8" />
@@ -63,7 +60,7 @@ export default function Home() {
                 The ultimate toolkit for prompt engineers to structure, save,
                 and iterate on complex AI prompts.
               </p>
-            </a>
+            </div>
 
             <a
               href="https://facilitator.sabiai.work"
