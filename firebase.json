@@ -1,9 +1,7 @@
 {
-    "apphosting": {
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ]
-    }
+  "apphosting": {
+    "backendId": "sabiai-launchpad",
+    "rootDir": "./",
+    "alwaysDeployFromSource": true
   }
+}
