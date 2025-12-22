@@ -101,8 +101,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                A focused utility for monitoring specific, simple operational
-                data—no nonsense, just the essentials.
+                Arming Nigeria's next generation with truth. We use raw stories to dismantle false histories and build a future free from the old nonsense.
               </p>
             </a>
           </div>
