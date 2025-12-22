@@ -87,7 +87,7 @@ export default function Home() {
               href="https://our-mumu-don-do.sabiai.work"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-red-500"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-green-500"
             >
               <div className="flex items-center space-x-4">
                 <svg
@@ -98,7 +98,7 @@ export default function Home() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-red-400 h-8 w-8"
+                  className="text-green-400 h-8 w-8"
                 >
                   <path d="M4.2 10.2C5.4 7.2 8.4 5 12 5c3.6 0 6.6 2.2 7.8 5.2" />
                   <path d="M4.5 16.5c0 3 2.5 5.5 7.5 5.5s7.5-2.5 7.5-5.5" />
