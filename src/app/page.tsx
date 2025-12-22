@@ -84,7 +84,7 @@ export default function Home() {
             </div>
 
             <a
-              href="https://mumu.monitor.sabiai.work"
+              href="https://our-mumu-don-do.sabiai.work"
               target="_blank"
               rel="noopener noreferrer"
               className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-red-500"
@@ -93,10 +93,10 @@ export default function Home() {
                 <AlertTriangle className="text-red-400 h-8 w-8" />
                 <div>
                   <h3 className="text-xl font-semibold text-white">
-                    Mumu Monitor
+                    Our Mumu don Do
                   </h3>
                   <p className="text-sm text-gray-400">
-                    mumu.monitor.sabiai.work
+                    our-mumu-don-do.sabiai.work
                   </p>
                 </div>
               </div>
