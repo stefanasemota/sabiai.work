@@ -107,8 +107,8 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="mt-16 text-center text-gray-600">
-        <p className="text-sm">
+      <footer className="mt-16 text-center">
+        <p className="text-sm text-gradient">
           Powered by{' '}
           <a
             href="https://firebase.google.com/"
