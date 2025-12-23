@@ -1,5 +1,6 @@
 
-import { MessageCircle, Filter, Handshake, Waves } from 'lucide-react';
+import { MessageCircle, Filter, Handshake, Waves, Share2 } from 'lucide-react';
+import { ShareButton } from '@/components/ShareButton';
 
 export default function Home() {
   return (
@@ -147,6 +148,9 @@ export default function Home() {
 
       </main>
       <footer className="mt-16 w-full max-w-5xl mx-auto">
+        <div className="mb-4">
+          <ShareButton />
+        </div>
         <p className="text-sm text-gray-500">
           Powered by{' '}
           <a
