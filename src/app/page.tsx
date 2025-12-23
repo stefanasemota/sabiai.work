@@ -14,8 +14,8 @@ export default function Home() {
           </p>
         </header>
 
-        <section id="productivity-labs" className="mb-16">
-          <h2 className="text-2xl font-semibold text-white mb-6">Productivity Labs</h2>
+        <section id="logic-productivity" className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6">Logic &amp; Productivity</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div
               className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500 opacity-50 cursor-not-allowed"
@@ -28,8 +28,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                The ultimate toolkit for prompt engineers to structure, save,
-                and iterate on complex AI prompts.
+                AI Toolkit for Prompt Engineers.
               </p>
             </div>
 
@@ -48,15 +47,14 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                An agile coaching assistant to generate dynamic meeting agendas,
-                retrospectives, and team-building exercises.
+                Agile coaching & team-building.
               </p>
             </div>
           </div>
         </section>
 
-        <section id="cultural-context" className="mb-16">
-          <h2 className="text-2xl font-semibold text-white mb-6">Cultural Context</h2>
+        <section id="culture-context" className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6">Culture &amp; Context</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <a
               href="https://naijaspeak.sabiai.work"
@@ -76,8 +74,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                An AI-driven language tool for translating and understanding
-                Nigerian Pidgin English in context.
+                Pidgin translation in context.
               </p>
             </a>
 
@@ -115,14 +112,14 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                Arming Nigeria's next generation with truth. We use raw stories to dismantle false histories and build a future free from the old nonsense.
+                Nigerian heritage & education.
               </p>
             </a>
           </div>
         </section>
 
-        <section id="wellness-community" className="mb-16">
-          <h2 className="text-2xl font-semibold text-white mb-6">Wellness &amp; Community</h2>
+        <section id="community-wellness" className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6">Community &amp; Wellness</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <a
               href="https://aqualog.asemota.ch/"
@@ -142,7 +139,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                Thermal Intelligence: An AI-driven companion for the coldwater swimming community to track, connect, and thrive in the elements.
+                Intelligent tracking for coldwater swimmers.
               </p>
             </a>
           </div>
