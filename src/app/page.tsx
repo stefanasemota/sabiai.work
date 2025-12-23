@@ -10,8 +10,7 @@ export default function Home() {
             <span className="text-gradient">SABI AI</span>
           </h1>
           <p className="text-2xl md:text-3xl font-light text-gray-400 max-w-3xl mx-auto">
-            Knowledge at Work:{' '}
-            <strong className="text-gradient">Niche Productivity</strong> & AI
+            Knowledge that Works: Practical Intelligence for Specialized
             Solutions.
           </p>
         </header>
