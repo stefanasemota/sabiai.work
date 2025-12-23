@@ -15,7 +15,7 @@ export default function Home() {
         </header>
 
         <section id="productivity-labs" className="mb-16">
-          <h2 class="text-2xl font-semibold text-white mb-6">Productivity Labs</h2>
+          <h2 className="text-2xl font-semibold text-white mb-6">Productivity Labs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div
               className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500 opacity-50 cursor-not-allowed"
@@ -56,7 +56,7 @@ export default function Home() {
         </section>
 
         <section id="cultural-context">
-          <h2 class="text-2xl font-semibold text-white mb-6">Cultural Context</h2>
+          <h2 className="text-2xl font-semibold text-white mb-6">Cultural Context</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <a
               href="https://naijaspeak.sabiai.work"
