@@ -124,7 +124,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="mt-16 text-center">
-        <p className="text-sm text-gradient">
+        <p className="text-sm text-gray-300">
           Powered by{' '}
           <a
             href="https://firebase.google.com/"
