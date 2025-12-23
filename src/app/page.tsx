@@ -1,5 +1,5 @@
 
-import { MessageCircle, Filter, Handshake } from 'lucide-react';
+import { MessageCircle, Filter, Handshake, Waves } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -55,7 +55,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="cultural-context">
+        <section id="cultural-context" className="mb-16">
           <h2 className="text-2xl font-semibold text-white mb-6">Cultural Context</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <a
@@ -120,9 +120,37 @@ export default function Home() {
             </a>
           </div>
         </section>
+
+        <section id="wellness-community" className="mb-16">
+          <h2 className="text-2xl font-semibold text-white mb-6">Wellness &amp; Community</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a
+              href="https://aqualog.asemota.ch/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-blue-500"
+            >
+              <div className="flex items-center space-x-4">
+                <Waves className="text-blue-400 h-8 w-8" />
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    Aqualog
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    aqualog.asemota.ch
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-gray-300">
+                Thermal Intelligence: An AI-driven companion for the coldwater swimming community to track, connect, and thrive in the elements.
+              </p>
+            </a>
+          </div>
+        </section>
+
       </main>
       <footer className="mt-16 text-center">
-        <p className="text-sm text-gray-300">
+        <p className="text-sm text-gray-500">
           Powered by{' '}
           <a
             href="https://firebase.google.com/"
@@ -132,7 +160,7 @@ export default function Home() {
           >
             Firebase
           </a>{' '}
-          &{' '}
+          &amp;{' '}
           <a
             href="https://www.hostpoint.ch/"
             target="_blank"
