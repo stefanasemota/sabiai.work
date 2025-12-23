@@ -146,7 +146,7 @@ export default function Home() {
         </section>
 
       </main>
-      <footer className="mt-16 text-center">
+      <footer className="mt-16 w-full max-w-5xl mx-auto">
         <p className="text-sm text-gray-500">
           Powered by{' '}
           <a
