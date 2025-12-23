@@ -7,7 +7,7 @@ export default function Home() {
       <main className="w-full max-w-5xl mx-auto">
         <header className="text-center mb-16">
           <h1 className="text-6xl md:text-7xl font-extrabold mb-4 leading-none">
-            <span className="text-gradient">SABI AI</span>
+            <span className="text-gradient">The Sabi Ecosystem</span>
           </h1>
           <p className="text-2xl md:text-3xl font-light text-gray-400 max-w-3xl mx-auto">
             Knowledge that Works: Practical Intelligence for Specialized
