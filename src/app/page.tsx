@@ -143,7 +143,7 @@ export default function Home() {
           >
             Hostpoint
           </a>
-          . ©sabi ai - 2025
+          . ©sabi ai - 2025 - 2026
         </p>
       </footer>
     </div>
