@@ -10,42 +10,13 @@ export default function Home() {
             <span className="text-gradient">The Sabi Ecosystem</span>
           </h1>
           <p className="text-2xl md:text-3xl font-light text-gray-400 max-w-3xl mx-auto">
-            Knowledge that Works: Practical Intelligence for Specialized
-            Solutions.
+            Solutions in Action.
           </p>
         </header>
 
-        <hr className="border-gray-700 mb-12" />
-
-        <section id="projects">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Solutions in Action
-          </h2>
-
+        <section id="productivity-labs" className="mb-16">
+          <h2 class="text-2xl font-semibold text-white mb-6">Productivity Labs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <a
-              href="https://naijaspeak.sabiai.work"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-yellow-500"
-            >
-              <div className="flex items-center space-x-4">
-                <MessageCircle className="text-yellow-400 h-8 w-8" />
-                <div>
-                  <h3 className="text-xl font-semibold text-white">
-                    NaijaSpeak
-                  </h3>
-                  <p className="text-sm text-gray-400">
-                    naijaspeak.sabiai.work
-                  </p>
-                </div>
-              </div>
-              <p className="mt-4 text-gray-300">
-                An AI-driven language tool for translating and understanding
-                Nigerian Pidgin English in context.
-              </p>
-            </a>
-
             <div
               className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-purple-500 opacity-50 cursor-not-allowed"
             >
@@ -81,6 +52,34 @@ export default function Home() {
                 retrospectives, and team-building exercises.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section id="cultural-context">
+          <h2 class="text-2xl font-semibold text-white mb-6">Cultural Context</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <a
+              href="https://naijaspeak.sabiai.work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-yellow-500"
+            >
+              <div className="flex items-center space-x-4">
+                <MessageCircle className="text-yellow-400 h-8 w-8" />
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    NaijaSpeak
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    naijaspeak.sabiai.work
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-gray-300">
+                An AI-driven language tool for translating and understanding
+                Nigerian Pidgin English in context.
+              </p>
+            </a>
 
             <a
               href="https://our-mumu-don-do.sabiai.work"
