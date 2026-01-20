@@ -143,6 +143,45 @@ export default function Home() {
                 Intelligent tracking for coldwater swimmers.
               </p>
             </a>
+            <a
+              href="https://studio--studio-8868769584-6a914.us-central1.hosted.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-orange-500"
+            >
+              <div className="flex items-center space-x-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-orange-400 h-8 w-8"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a10 10 0 0 1 8.66 5H3.34A10 10 0 0 1 12 2z" />
+                  <path d="M12 22a10 10 0 0 0 8.66-5H3.34A10 10 0 0 0 12 22z" />
+                  <path d="M17.66 7 12 12l-5.66-5" />
+                  <path d="M17.66 17 12 12l-5.66 5" />
+                  <path d="m12 2-4 10 4 10 4-10-4-10z" />
+                </svg>
+                <div>
+                  <h3 className="text-xl font-semibold text-white">
+                    Kids Cup Helpers
+                  </h3>
+                  <p className="text-sm text-gray-400">
+                    studio--studio-8868769584-6a914.us-central1.hosted.app
+                  </p>
+                </div>
+              </div>
+              <p className="mt-4 text-gray-300">
+                Volunteer & shift planning for the FC Gelterkinden Kids Cup.
+              </p>
+            </a>
           </div>
         </section>
 
