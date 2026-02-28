@@ -212,7 +212,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="mt-4 text-gray-300">
-                Digital training plans and drill management for soccer coaches.
+                Digital training plans and drill management for soccer coaches for 6-7 years old.
               </p>
             </a>
           </div>
