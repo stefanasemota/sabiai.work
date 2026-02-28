@@ -79,11 +79,8 @@ export default function Home() {
               </p>
             </a>
 
-            <a
-              href="https://our-mumu-don-do.sabiai.work"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-hover transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-green-500"
+            <div
+              className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-green-500 opacity-50 cursor-not-allowed"
             >
               <div className="flex items-center space-x-4">
                 <svg
@@ -115,7 +112,7 @@ export default function Home() {
               <p className="mt-4 text-gray-300">
                 Nigerian heritage & education.
               </p>
-            </a>
+            </div>
           </div>
         </section>
 
