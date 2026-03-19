@@ -1,5 +1,5 @@
 
-import { MessageCircle, Filter, Handshake, Waves, Share2 } from 'lucide-react';
+import { MessageCircle, Filter, Handshake, Waves, Share2, Layers } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
 import { HeroSection } from '@/components/HeroSection';
 
@@ -46,6 +46,23 @@ export default function Home() {
                   Agile coaching & team-building.
                 </p>
               </div>
+
+              <div
+                className="transition duration-300 ease-in-out block p-6 bg-gray-800 rounded-lg shadow-xl border-l-4 border-indigo-500 opacity-50 cursor-not-allowed"
+              >
+                <div className="flex items-center space-x-4">
+                  <Layers className="text-indigo-400 h-8 w-8" />
+                  <div>
+                    <h3 className="text-xl font-semibold text-white">Retro-Lite</h3>
+                    <p className="text-sm text-gray-400">retro.sabiai.work</p>
+                  </div>
+                </div>
+                <p className="mt-4 text-gray-300">
+                  Lean & Agile Retrospectives. Focused Drill-Downs for high-performing teams.
+                </p>
+                <p className="mt-2 text-xs italic text-gray-500">No public access</p>
+              </div>
+
             </div>
           </section>
 
