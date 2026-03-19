@@ -1,3 +1,4 @@
+
 import { MessageCircle, Filter, Handshake, Waves, Share2 } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
 import { HeroSection } from '@/components/HeroSection';
@@ -69,7 +70,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="mt-4 text-gray-300">
-                  Pidgin translation in context.
+                  The heartbeat of Lagos, digitized. High-fidelity radio and Pidgin translation for the global community.
                 </p>
               </a>
 
