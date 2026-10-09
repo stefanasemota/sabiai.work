@@ -9,7 +9,7 @@ Welcome to the Sabi Ecosystem, a curated launchpad for projects that blend niche
 This launchpad currently features applications across three main pods:
 
 *   **Logic & Productivity:** Tools designed for professional enhancement, like `Refine` for prompt engineering and `Facilitator` for agile coaching.
-*   **Culture & Context:** Applications that digitize and share cultural identity, such as `NaijaSpeak` for Nigerian Pidgin translation.
+*   **Culture & Context:** Applications that digitize and share cultural identity, such as `NaijaSpeak` for Nigerian Pidgin translation, `Mile 2 Radio` for live Afrobeat streaming, and `Our Mumu Don Do` for Nigerian heritage & education.
 *   **Community & Wellness:** Projects focused on lifestyle and community engagement, including `Aqualog` for coldwater swimmers and `Kids Cup Helpers` for volunteer management.
 
 
