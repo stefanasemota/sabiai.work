@@ -22,3 +22,15 @@ Chronological ledger of architectural decisions, governance milestones, and stru
   4. Hardened `.gitignore` with `/dist`, `*service-account*.json`, and `*key*.json`.
   5. Scaffolded `src/repositories/projects.ts` and `src/repositories/projects.test.ts` to enforce the Shift-Left Repository pattern.
 - **Impact:** Repository achieves **14 / 14 (100%)** compliance with the `aos Vibe Coding Guardrail` standard.
+
+---
+
+## [2026-10-31] Shift-Left UI Wiring & Repository Cleanliness (`refactor/repository-wiring`)
+- **Origin:** Follow-up `aos-audit-project` Deep Inspection
+- **Context:** While `ProjectsRepository` existed in `src/repositories/projects.ts`, `src/app/page.tsx` and the JSON-LD `ItemList` in `src/app/layout.tsx` still contained inline hardcoded project lists, and the repository root held two legacy stray files (`static-home.html` and `.modified`).
+- **Decision:**
+  1. Switched to isolated branch `refactor/repository-wiring`.
+  2. Expanded `ProjectsRepository` to cover all 9 launchpad applications (`Refine`, `Facilitator`, `Retro-Lite`, `NaijaSpeak`, `Mile 2 Radio`, `Our Mumu don Do`, `Aqualog`, `Kids Cup Helpers`, `G-Kicker Coach`) and wired both `src/app/page.tsx` and `src/app/layout.tsx` to consume `ProjectsRepository` as the single source of truth.
+  3. Removed legacy `static-home.html` and `.modified` from the repository root.
+- **Impact:** Eliminates data duplication between UI cards and SEO Schema.org structured data while enforcing strict Shift-Left repository boundaries.
+

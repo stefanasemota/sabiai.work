@@ -1,6 +1,6 @@
 # 🛡️ AOS Project Audit Report (`aos-audit.md`)
 - **Date:** 2026-10-31
-- **Branch:** `chore/aos-audit-compliance`
+- **Branch:** `refactor/repository-wiring`
 - **Compliance Score:** 14 / 14 checks passing (100%)
 
 ## Applied Optimizations
@@ -9,11 +9,11 @@
 - [x] **`dev.md`:** Created comprehensive local development setup guide, port `9002` instructions, environment variable template, and quality gate verification commands.
 - [x] **`decision.md`:** Created chronological Architectural Decision Record (ADR) ledger with dated `[YYYY-MM-DD]` entries (`Origin`, `Context`, `Decision`, `Impact`).
 - [x] **Standardized `package.json` Schema:** Updated `name` (`sabiai-work`), `version` (`1.0.0`), `description`, `author` (`Stephan Asemota`), `keywords`, `repository`, `engines.node` (`22`), and standardized `test`, `test:unit`, and `test:e2e` scripts.
-- [x] **Isolated Working Branch:** Created and switched to `chore/aos-audit-compliance` from `main`.
-- [x] **Hardened `.gitignore`:** Added `/dist`, `*service-account*.json`, and `*key*.json` exclusions alongside existing `.env*`, `/node_modules`, `/coverage`, `/.next/`, `/build`, and `*.pem` rules.
+- [x] **Isolated Working Branch:** Switched to `refactor/repository-wiring` from `main`.
+- [x] **Hardened `.gitignore` & Root Cleanliness:** Added `/dist`, `*service-account*.json`, and `*key*.json` exclusions and removed stray legacy files (`static-home.html`, `.modified`).
 - [x] **`AGENTS.md`:** Added agent governance documentation enforcing Conventional Commits (`feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `style`, `perf`) and Shift-Left architectural boundaries.
 - [x] **`.nvmrc`:** Pinned Node.js runtime to `22`.
-- [x] **Shift-Left Repository Pattern & Unit Test Separation:** Scaffolded `src/repositories/projects.ts` and `src/repositories/projects.test.ts`, separating unit tests (`npm run test:unit`) from E2E (`npm run test:e2e`).
+- [x] **Shift-Left Repository Pattern & End-to-End Wiring:** Wired `src/app/page.tsx` and `src/app/layout.tsx` (JSON-LD `ItemList`) to consume `ProjectsRepository` (`src/repositories/projects.ts`) as the single source of truth, backed by unit tests in `src/repositories/projects.test.ts`.
 
 ## Deferred / Skipped Items
 - None — all 14 audit checks applied and verified.

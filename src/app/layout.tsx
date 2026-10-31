@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
+import { ProjectsRepository } from '@/repositories/projects';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sabiai.work'),
@@ -111,52 +112,17 @@ const jsonLd = {
     {
       '@type': 'ItemList',
       name: 'Sabi Ecosystem Applications',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          item: {
-            '@type': 'WebApplication',
-            name: 'NaijaSpeak',
-            url: 'https://naijaspeak.sabiai.work',
-            description: 'AI-driven Nigerian Pidgin English translation, dictionary, and cultural knowledge platform.',
-            applicationCategory: 'EducationalApplication',
-          },
+      itemListElement: ProjectsRepository.getActiveProjects().map((proj, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        item: {
+          '@type': 'WebApplication',
+          name: proj.name,
+          url: proj.url,
+          description: proj.description,
+          applicationCategory: proj.applicationCategory,
         },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          item: {
-            '@type': 'WebApplication',
-            name: 'Mile 2 Radio',
-            url: 'https://m2r.sabiai.work/dashboard',
-            description: 'Live Afrobeat listener station with real-time synchronized streaming and interactive lyrics.',
-            applicationCategory: 'MultimediaApplication',
-          },
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          item: {
-            '@type': 'WebApplication',
-            name: 'Our Mumu don Do',
-            url: 'https://our-mumu-don-do.sabiai.work',
-            description: 'Educational storytelling and critical thinking platform for Nigerian youth.',
-            applicationCategory: 'EducationalApplication',
-          },
-        },
-        {
-          '@type': 'ListItem',
-          position: 4,
-          item: {
-            '@type': 'WebApplication',
-            name: 'Aqualog',
-            url: 'https://aqualog.asemota.ch',
-            description: 'Intelligent tracking and wellness platform for coldwater swimmers.',
-            applicationCategory: 'HealthApplication',
-          },
-        },
-      ],
+      })),
     },
   ],
 };
