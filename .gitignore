@@ -19,10 +19,13 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+*service-account*.json
+*key*.json
 
 # debug
 npm-debug.log*

@@ -1,9 +1,27 @@
 {
-  "name": "nextn",
-  "version": "0.1.0",
+  "name": "sabiai-work",
+  "version": "1.0.0",
+  "description": "The Sabi Ecosystem Launchpad — a curated hub for projects blending niche productivity, cultural context, and community wellness.",
   "private": true,
+  "author": {
+    "name": "Stephan Asemota",
+    "email": "stefan@asemota.ch",
+    "url": "https://asemota.ch/"
+  },
+  "keywords": [
+    "node",
+    "npm",
+    "project",
+    "vibecoding tool",
+    "https://sabiai.work/",
+    "7-Phase Feature Development Workflow"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanasemota/sabiai.work.git"
+  },
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "scripts": {
     "dev": "next dev --turbopack -p 9002",
@@ -12,7 +30,10 @@
     "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:unit",
+    "test:unit": "npx tsx --test src/repositories/*.test.ts",
+    "test:e2e": "echo \"No E2E suite configured yet\""
   },
   "dependencies": {
     "@genkit-ai/google-genai": "^1.20.0",

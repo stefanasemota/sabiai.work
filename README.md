@@ -55,6 +55,11 @@ Here is a high-level overview of the key directories and files in this project:
     *   `flows/`: Directory for defining AI flows.
 *   `docs/backend.json`: A blueprint file that defines the data entities and Firestore structure for your application. It serves as a single source of truth for your backend schema.
 *   `firestore.rules`: Contains the security rules for your Cloud Firestore database, ensuring your data is safe and accessible only by authorized users.
-*   `package.json`: Lists the project dependencies and scripts. The `engines` field is set to `node: 20` to ensure a compatible build environment in Firebase App Hosting.
+*   `package.json`: Lists the project dependencies and scripts. The `engines` field is set to `node: 22` to ensure a compatible build environment in Firebase App Hosting.
 
 This structure is designed to be scalable and organized, making it easy to find and manage your code as the project grows.
+
+---
+
+Powered by <a href="https://github.com/stefanasemota/vibe-coding-guardrail">aos Vibe Coding Guardrail</a> | Fuel the Project - Buy me a coffee: <a href="https://buymeacoffee.com/stephanasex">https://buymeacoffee.com/stephanasex</a>
+
