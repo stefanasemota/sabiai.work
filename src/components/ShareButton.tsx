@@ -1,8 +1,6 @@
-
 'use client';
 
 import { Share2 } from 'lucide-react';
-import { Button } from './ui/button';
 import { useToast } from '@/hooks/use-toast';
 
 export function ShareButton() {
@@ -20,11 +18,9 @@ export function ShareButton() {
         await navigator.share(shareData);
       } catch (error) {
         console.error('Error sharing:', error);
-        // Fallback to clipboard copy if sharing fails
         copyToClipboard();
       }
     } else {
-      // Fallback for browsers that do not support the Web Share API
       copyToClipboard();
     }
   };
@@ -49,12 +45,13 @@ export function ShareButton() {
   };
 
   return (
-    <Button
+    <button
+      type="button"
       onClick={handleShare}
-      className="bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-bold py-2 px-4 rounded-lg hover:from-teal-500 hover:to-cyan-600 transition-all duration-300 ease-in-out"
+      className="btn btn--secondary text-sm"
     >
-      <Share2 className="mr-2 h-4 w-4" />
-      Share The Ecosystem
-    </Button>
+      <Share2 className="h-4 w-4" />
+      <span>Share The Ecosystem</span>
+    </button>
   );
 }
