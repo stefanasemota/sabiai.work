@@ -1,6 +1,7 @@
 export type PodCategory = 'logic-productivity' | 'culture-context' | 'community-wellness';
 
 export type ProjectIconKey =
+  | 'shield-check'
   | 'filter'
   | 'handshake'
   | 'layers'
@@ -27,6 +28,20 @@ export interface EcosystemProject {
 }
 
 const ECOSYSTEM_PROJECTS: EcosystemProject[] = [
+  {
+    id: 'vibe-coding-guardrail',
+    name: 'Vibe Coding Guardrail',
+    domain: 'github.com/stefanasemota/vibe-coding-guardrail',
+    url: 'https://github.com/stefanasemota/vibe-coding-guardrail',
+    description:
+      'Public AI coding guardrail library & plugin enforcing the 7-Phase Feature-Driven Development (FDD) workflow, Shift-Left Repository architecture, and automated compliance audits.',
+    pod: 'logic-productivity',
+    active: true,
+    borderColorClass: 'border-emerald-500',
+    iconColorClass: 'text-emerald-400',
+    iconKey: 'shield-check',
+    applicationCategory: 'DeveloperApplication',
+  },
   {
     id: 'refine',
     name: 'Refine',

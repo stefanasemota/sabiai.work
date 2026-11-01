@@ -7,8 +7,10 @@ The **Sabi Ecosystem Launchpad** (`https://sabiai.work/`) is the central entry p
 
 ## 2. Core Ecosystem Pods
 1. **Logic & Productivity:**
+   - **Vibe Coding Guardrail** (`https://github.com/stefanasemota/vibe-coding-guardrail`): Public AI coding guardrail library & plugin enforcing the 7-Phase Feature-Driven Development (FDD) workflow, Shift-Left Repository architecture, and automated compliance audits.
    - **Refine** (`https://prompts.sabiai.work/`): Precision prompt engineering and structured AI workflow refinement.
    - **Facilitator** (`https://facilitator.sabiai.work/`): Agile coaching, retrospective facilitation, and team alignment tools.
+   - **Retro-Lite** (`https://retro.sabiai.work/`): Lean & agile retrospectives with focused drill-downs for high-performing teams.
 2. **Culture & Context:**
    - **NaijaSpeak** (`https://naijaspeak.sabiai.work/`): Interactive Nigerian Pidgin translation and cultural context engine.
    - **Mile 2 Radio** (`https://m2r.sabiai.work/dashboard`): Live Afrobeat broadcasting and diaspora community radio.
