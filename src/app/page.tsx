@@ -1,4 +1,4 @@
-import { MessageCircle, Filter, Handshake, Waves, Layers, Radio } from 'lucide-react';
+import { MessageCircle, Filter, Handshake, Waves, Layers, Radio, ShieldCheck } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
 import { HeroSection } from '@/components/HeroSection';
 import {
@@ -11,6 +11,8 @@ import {
 function renderProjectIcon(iconKey: ProjectIconKey, colorClass: string) {
   const className = `${colorClass} h-8 w-8`;
   switch (iconKey) {
+    case 'shield-check':
+      return <ShieldCheck className={className} />;
     case 'filter':
       return <Filter className={className} />;
     case 'handshake':

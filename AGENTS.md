@@ -1,28 +1,36 @@
 # 🤖 Agent Governance & Engineering Standards (`AGENTS.md`)
 
 ## 1. Purpose
-This repository adheres to the **aos Vibe Coding Guardrail** and the **7-Phase Feature-Driven Development (FDD)** workflow. All human and AI agents operating in this workspace must follow these rules.
+This repository adheres to the **[aos Vibe Coding Guardrail](https://github.com/stefanasemota/vibe-coding-guardrail)** and the **7-Phase Feature-Driven Development (FDD)** workflow. All human and AI agents operating in this workspace must follow these rules without filler or AI slop.
 
-## 2. Conventional Commits (Mandatory)
-Every Git commit message must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
-```text
-<type>(<optional-scope>): <concise summary in imperative mood>
-```
-Allowed `<type>` values:
-- `feat`: A new feature or ecosystem application entry
-- `fix`: A bug fix
-- `docs`: Documentation-only changes (`README.md`, `initiative.md`, `dev.md`, `decision.md`, `aos-audit.md`)
-- `chore`: Build process, dependency, or scaffolding updates
-- `refactor`: Code change that neither fixes a bug nor adds a feature
-- `test`: Adding or updating unit or E2E tests
-- `style`: Formatting, missing semi-colons, lint fixes
-- `perf`: Performance optimization
+---
 
-## 3. Architectural Boundaries (Shift-Left Repository Pattern)
+## 2. Branching & Git Strategy (STRICT)
+- **Never work on `main`:** Always create a descriptive branch (`feat/<slug>`, `fix/<slug>`, `chore/<slug>`, `refactor/<slug>`) from the latest `development` or `main` branch before writing code.
+- **Test on the branch:** Ensure all code builds, tests pass, and the feature works within the isolated branch.
+- **Push, do not merge:** Push the verified branch to the remote repository and open a Draft Pull Request. Never merge into `main` or `development`—leave final merge/review to the human.
+
+---
+
+## 3. Execution Discipline
+- **Verify before writing:** Read existing relevant code and run the build/test command (`npm test && npm run typecheck`) to confirm the baseline passes before making edits.
+- **Look Before You Leap:** Always run a `find` or `grep` search to check if a utility function, hook, or component already exists before writing a new one from scratch.
+- **Dependency Lockdown:** Never install new `npm` packages without explicit human approval first. Rely on existing dependencies whenever possible.
+- **Fix your own bugs:** If a build, lint, or test command fails after your edit, iterate and fix it autonomously before declaring the task done.
+- **Documentation Sync:** If a code change alters an API endpoint, CLI flag, environment variable, or setup step, update `README.md`, `dev.md`, or API docs in the same commit.
+- **Zero AI Slop:** Avoid filler words, robotic transitions, or verbose boilerplate. Write concise, direct prose and self-documenting code.
+
+---
+
+## 4. Architectural Boundaries (Shift-Left Repository Pattern)
 - **No Direct SDK Leaks in UI:** Components in `src/app/` and `src/components/` must never import `firebase-admin` or execute raw database queries directly.
 - **Repository Encapsulation:** All data structures, catalog queries, and external persistence calls must live in `src/repositories/` with corresponding unit tests (`*.test.ts`).
 
-## 4. Branch & Security Hygiene
-- Never commit directly to `main` during feature or audit work; always work on an isolated branch (`feat/*`, `fix/*`, `chore/*`).
-- Never hardcode API keys, tokens, or service account credentials. Verify `.gitignore` blocks `.env*`, `*service-account*.json`, `*key*.json`, and `*.pem`.
-- Record architectural milestones in `decision.md`.
+---
+
+## 5. Conventional Commits & Atomicity
+- **Commit atomicity:** Make small, logical commits as you progress through a feature rather than one massive commit at the end.
+- **Explain the Fix:** When resolving a bug (`fix`), include a concise commit body explaining *why* the bug occurred and *how* the change fixed it.
+- **Required Header Format:** `<type>(<optional-scope>): <concise summary in imperative mood>`
+  - Allowed `<type>` values: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `style`, `perf`.
+- **Ledger Hygiene:** Record architectural milestones at the top of `decision.md` using `[DD.MM.YYYY]` date format (newest at top).

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://github.com/stefanasemota/vibe-coding-guardrail/raw/main/schemas/ai-rules.schema.json",
+  "guardrail": "aos-vibe-coding-guardrail",
+  "repository": "https://github.com/stefanasemota/vibe-coding-guardrail",
+  "workflow": "7-Phase Feature-Driven Development (FDD)",
+  "gitStrategy": {
+    "forbidDirectMainCommits": true,
+    "branchPrefixes": ["feat/", "fix/", "chore/", "refactor/", "docs/", "test/"],
+    "requireDraftPullRequest": true,
+    "autoMerge": false
+  },
+  "commitPolicy": {
+    "conventionalCommits": true,
+    "allowedTypes": ["feat", "fix", "docs", "chore", "refactor", "test", "style", "perf"],
+    "requireBugRootCauseInFixBody": true
+  },
+  "architecture": {
+    "pattern": "shift-left-repository",
+    "repositoryDirectory": "src/repositories",
+    "forbidDirectSdkInUi": ["src/app", "src/components"]
+  },
+  "documentation": {
+    "requiredFiles": ["README.md", "initiative.md", "dev.md", "decision.md", "aos-audit.md", "AGENTS.md"],
+    "dateFormat": "DD.MM.YYYY",
+    "ledgerOrder": "reverse-chronological"
+  }
+}
