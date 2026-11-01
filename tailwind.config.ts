@@ -10,9 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Space Grotesk', 'sans-serif'],
-        code: ['monospace'],
+        body: ["'Courier New'", "'Special Elite'", 'monospace'],
+        headline: ["'Oswald'", "'Impact'", "'Arial Narrow'", 'sans-serif'],
+        code: ["'Courier New'", 'ui-monospace', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',

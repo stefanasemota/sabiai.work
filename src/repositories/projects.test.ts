@@ -29,4 +29,17 @@ describe('ProjectsRepository (Shift-Left Boundary)', () => {
     assert.deepEqual(culturePod.map((p) => p.id), ['naijaspeak', 'mile-2-radio', 'our-mumu-don-do']);
     assert.deepEqual(communityPod.map((p) => p.id), ['aqualog', 'kids-cup-helpers', 'g-kicker-coach']);
   });
+
+  it('exposes 3 ecosystem pillar features, developer profile, and 3 support tiers', () => {
+    const features = ProjectsRepository.getEcosystemFeatures();
+    assert.equal(features.length, 3);
+
+    const devProfile = ProjectsRepository.getDeveloperProfile();
+    assert.equal(devProfile.githubUrl, 'https://github.com/stefanasemota');
+    assert.equal(devProfile.handle, '@stefanasemota');
+
+    const tiers = ProjectsRepository.getEcosystemTiers();
+    assert.equal(tiers.length, 3);
+    assert.equal(tiers[1].highlighted, true, 'Middle tier must be highlighted');
+  });
 });

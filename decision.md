@@ -4,6 +4,17 @@ Reverse-chronological ledger of architectural decisions, governance milestones, 
 
 ---
 
+## [01.11.2026] Grunge Design Single-Page Redesign Architecture (`feat/grunge-redesign`)
+- **Origin:** Human Request / Phase 4 Architecture Gate (`vibe-coder`)
+- **Context:** Redesigning the Sabi Ecosystem Launchpad single-page experience using the 1990s Ray Gun / David Carson **Grunge Design** visual system (`#1a1815` bg, `#24211c` surface, `#c1391f` primary crimson, `#d9b23c` mustard accent, `#ece6d8` distressed paper text, `Oswald` display & `Courier New`/`Special Elite` mono typography, fractal noise grain overlay, and torn-paper `clip-path`), while adding a dedicated Developer Profile (`https://github.com/stefanasemota`) and an M2R-analogous multi-column footer (without release notes).
+- **Decision:** Adopted **Approach C (Pragmatic Balance)**:
+  1. Centralize Grunge CSS custom properties, fractal-noise grain overlay (`--grain-svg`), and jagged torn-edge clip-paths (`--torn-clip`) in `src/app/globals.css`, paired with Google Fonts (`Oswald` and `Special Elite`) in `src/app/layout.tsx`.
+  2. Expand `ProjectsRepository` (`src/repositories/projects.ts` + `src/repositories/projects.test.ts`) to expose typed ecosystem pillar features, developer profile metadata (`@stefanasemota`), and community/open-source tiers alongside the 10 ecosystem projects.
+  3. Re-organize `src/components/HeroSection.tsx`, `src/components/ShareButton.tsx`, and `src/app/page.tsx` into a cohesive Grunge shell with Navbar, Anti-Grid Hero with 3D/Collage CSS element, 3 Ecosystem Pillar Feature cards, 3 Ecosystem Pods (10 apps), Creator & Architect Spotlight (`https://github.com/stefanasemota` with GitHub SVG icon), 3 Community & Open-Source Support Tiers, Final CTA, and the M2R-style Footer (no release notes).
+- **Impact:** `src/app/globals.css`, `src/app/layout.tsx`, `src/repositories/projects.ts`, `src/repositories/projects.test.ts`, `src/components/HeroSection.tsx`, `src/components/ShareButton.tsx`, `src/app/page.tsx`.
+
+---
+
 ## [01.11.2026] Latest AOS Audit Migration & `vibe-coding-guardrail` Showcase (`chore/aos-project-audit`)
 - **Origin:** `aos-audit-project` Compliance Audit & Ecosystem Expansion
 - **Context:** Audited the repository against the latest `aos-audit-project` Architectural Summary, which requires the 5-Badge Header Row in `README.md`, reverse-chronological `[DD.MM.YYYY]` dates in `decision.md` and `aos-audit.md`, `ai-rules.json` governance metadata, and showcasing the public library & plugin **[vibe-coding-guardrail](https://github.com/stefanasemota/vibe-coding-guardrail)**.

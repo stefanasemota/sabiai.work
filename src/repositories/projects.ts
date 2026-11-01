@@ -159,6 +159,137 @@ const ECOSYSTEM_PROJECTS: EcosystemProject[] = [
   },
 ];
 
+export interface EcosystemFeature {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  iconKey: 'layers' | 'radio' | 'waves';
+}
+
+export interface DeveloperProfile {
+  name: string;
+  handle: string;
+  role: string;
+  githubUrl: string;
+  readmeRepoUrl: string;
+  websiteUrl: string;
+  guardrailUrl: string;
+  bio: string;
+  highlights: string[];
+}
+
+export interface EcosystemTier {
+  id: string;
+  name: string;
+  badge: string;
+  priceLabel: string;
+  cadence: string;
+  description: string;
+  features: string[];
+  ctaLabel: string;
+  ctaHref: string;
+  highlighted: boolean;
+}
+
+const ECOSYSTEM_FEATURES: EcosystemFeature[] = [
+  {
+    id: 'feature-logic',
+    code: 'POD // 01',
+    title: 'Logic & Guardrail Engineering',
+    subtitle: '7-Phase FDD & Prompt Precision',
+    description:
+      'Deterministic AI coding guardrails, Shift-Left repository architecture, and agile facilitation tools engineered for high-velocity builders.',
+    iconKey: 'layers',
+  },
+  {
+    id: 'feature-culture',
+    code: 'POD // 02',
+    title: 'Cultural Context & Signal',
+    subtitle: 'Lagos to Global Broadcast',
+    description:
+      'High-fidelity Afrobeat streaming on Mile 2 Radio, Nigerian Pidgin intelligence on NaijaSpeak, and civic storytelling on Our Mumu Don Do.',
+    iconKey: 'radio',
+  },
+  {
+    id: 'feature-community',
+    code: 'POD // 03',
+    title: 'Community & Field Utility',
+    subtitle: 'Real-World Wellness & Sport',
+    description:
+      'Coldwater immersion telemetry with Aqualog, youth tournament coordination with Kids Cup Helpers, and AI soccer drills with G-Kicker Coach.',
+    iconKey: 'waves',
+  },
+];
+
+const DEVELOPER_PROFILE: DeveloperProfile = {
+  name: 'Stephan Asemota',
+  handle: '@stefanasemota',
+  role: 'Principal Ecosystem Architect & Creator of Sabi AI',
+  githubUrl: 'https://github.com/stefanasemota',
+  readmeRepoUrl: 'https://github.com/stefanasemota/stefanasemota',
+  websiteUrl: 'https://asemota.ch/',
+  guardrailUrl: 'https://github.com/stefanasemota/vibe-coding-guardrail',
+  bio: 'Building culturally grounded AI products, open-source engineering guardrails, and community tools from Switzerland to Lagos. Explore the root GitHub profile README and public repositories.',
+  highlights: [
+    'Creator of aos Vibe Coding Guardrail (7-Phase FDD Protocol)',
+    'Architect of 10+ Sabi Ecosystem Web & AI Applications',
+    'Open-Source Maintainer & Agile Technical Coach',
+  ],
+};
+
+const ECOSYSTEM_TIERS: EcosystemTier[] = [
+  {
+    id: 'tier-open-access',
+    name: 'Public Launchpad',
+    badge: 'OPEN ACCESS',
+    priceLabel: 'FREE',
+    cadence: 'forever // public pods',
+    description: 'Instant browser access to live Sabi Ecosystem applications and cultural broadcasts.',
+    features: [
+      'Live streaming on Mile 2 Radio (M2R)',
+      'NaijaSpeak Pidgin translation & Our Mumu Don Do',
+      'Aqualog, Kids Cup Helpers & G-Kicker Coach access',
+    ],
+    ctaLabel: 'Explore Live Apps',
+    ctaHref: '#projects',
+    highlighted: false,
+  },
+  {
+    id: 'tier-guardrail-oss',
+    name: 'Vibe Coding Guardrail',
+    badge: 'RECOMMENDED // OSS PLUGIN',
+    priceLabel: 'MIT OSS',
+    cadence: 'github plugin & library',
+    description: 'Install our public AI coding guardrail plugin & 7-Phase FDD skill suite in your own repos.',
+    features: [
+      'Engine-neutral 7-Phase FDD orchestrator (vibe-coder)',
+      'Automated repo compliance auditor (aos-audit-project)',
+      'Shift-Left Repository & security gates (aos-verify)',
+    ],
+    ctaLabel: 'Get the Guardrail Plugin',
+    ctaHref: 'https://github.com/stefanasemota/vibe-coding-guardrail',
+    highlighted: true,
+  },
+  {
+    id: 'tier-fuel',
+    name: 'Fuel the Ecosystem',
+    badge: 'BACKER // PATRON',
+    priceLabel: 'COFFEE',
+    cadence: 'community patronage',
+    description: 'Support independent hosting, radio streaming bandwidth, and open-source AI tooling.',
+    features: [
+      'Directly backs Firebase & Hostpoint infrastructure',
+      'Supports new cultural & community pod experiments',
+      'Connect with @stefanasemota on GitHub',
+    ],
+    ctaLabel: 'Buy Me a Coffee',
+    ctaHref: 'https://buymeacoffee.com/stephanasex',
+    highlighted: false,
+  },
+];
+
 export class ProjectsRepository {
   static getAllProjects(): EcosystemProject[] {
     return [...ECOSYSTEM_PROJECTS];
@@ -170,5 +301,23 @@ export class ProjectsRepository {
 
   static getProjectsByPod(pod: PodCategory): EcosystemProject[] {
     return ECOSYSTEM_PROJECTS.filter((project) => project.pod === pod);
+  }
+
+  static getEcosystemFeatures(): EcosystemFeature[] {
+    return [...ECOSYSTEM_FEATURES];
+  }
+
+  static getDeveloperProfile(): DeveloperProfile {
+    return {
+      ...DEVELOPER_PROFILE,
+      highlights: [...DEVELOPER_PROFILE.highlights],
+    };
+  }
+
+  static getEcosystemTiers(): EcosystemTier[] {
+    return ECOSYSTEM_TIERS.map((tier) => ({
+      ...tier,
+      features: [...tier.features],
+    }));
   }
 }

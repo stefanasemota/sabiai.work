@@ -44,9 +44,9 @@ This project is built with a curated set of modern technologies to ensure a scal
 *   **Framework:** [Next.js](https://nextjs.org/) (using the App Router)
 *   **Language:** [TypeScript](https://www.typescriptlang.org/)
 *   **UI Library:** [React](https://react.dev/)
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-*   **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
-*   **Animations:** [Framer Motion](https://www.framer.com/motion/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/) + **1990s Grunge Design System** (`#1a1815` ink/paper palette, `Oswald` + `Special Elite` / `Courier New` typography, fractal noise grain overlay, and torn-paper clip-paths)
+*   **UI Components:** [shadcn/ui](https://ui.shadcn.com/) & Lucide/SVG Iconography
+*   **Architect & Developer Profile:** [Stephan Asemota (`@stefanasemota`)](https://github.com/stefanasemota) — root GitHub profile README and open-source ecosystem maintainer
 *   **Backend & Database:** [Firebase](https://firebase.google.com/) (Authentication and Firestore)
 *   **Generative AI:** [Genkit](https://firebase.google.com/docs/genkit)
 
