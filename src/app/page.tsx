@@ -8,10 +8,7 @@ import {
   ShieldCheck,
   ExternalLink,
   Lock,
-  Check,
-  ArrowUpRight,
   Coffee,
-  Terminal,
   Compass,
 } from 'lucide-react';
 import { ShareButton } from '@/components/ShareButton';
@@ -165,7 +162,7 @@ function ProjectCard({ project, index }: { project: EcosystemProject; index: num
           <span className="italic text-[#d9b23c]">{project.accessNote}</span>
         ) : project.active ? (
           <span className="grunge-label text-[#d9b23c] underline">
-            OPEN APPLICATION -&gt;
+            OPEN -&gt;
           </span>
         ) : (
           <span className="grunge-label">INTERNAL BUILD</span>
@@ -202,7 +199,7 @@ const POD_SECTIONS: { id: PodCategory; code: string; title: string; subtitle: st
     id: 'logic-productivity',
     code: 'SECTOR 01 // LOGIC',
     title: 'Logic & Productivity',
-    subtitle: 'AI coding guardrails, prompt engineering & agile team facilitation.',
+    subtitle: 'Prompt engineering, developer tooling & agile team facilitation.',
   },
   {
     id: 'culture-context',
@@ -219,10 +216,6 @@ const POD_SECTIONS: { id: PodCategory; code: string; title: string; subtitle: st
 ];
 
 export default function Home() {
-  const features = ProjectsRepository.getEcosystemFeatures();
-  const devProfile = ProjectsRepository.getDeveloperProfile();
-  const tiers = ProjectsRepository.getEcosystemTiers();
-
   return (
     <div className="min-h-screen flex flex-col justify-between bg-[#1a1815] text-[#ece6d8]">
       {/* 1. GRUNGE NAVBAR */}
@@ -232,51 +225,42 @@ export default function Home() {
             <span className="bg-[#c1391f] text-white grunge-display text-2xl font-bold px-3 py-1 border-2 border-[#0c0b09] shadow-[3px_3px_0_#0c0b09] group-hover:bg-[#d9b23c] group-hover:text-black transition-colors">
               SABI // AI
             </span>
-            <span className="grunge-label text-[#a89f8a] hidden sm:inline">
-              ECOSYSTEM LAUNCHPAD
-            </span>
           </a>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
             <a
-              href="#features"
+              href="#logic-productivity"
               className="grunge-label text-[#ece6d8] hover:text-[#d9b23c] transition-colors cursor-pointer"
             >
-              [01. Pillars]
+              [01. Logic]
             </a>
             <a
-              href="#projects"
+              href="#culture-context"
               className="grunge-label text-[#ece6d8] hover:text-[#d9b23c] transition-colors cursor-pointer"
             >
-              [02. Pods]
+              [02. Culture]
             </a>
             <a
-              href="#developer"
+              href="#community-wellness"
               className="grunge-label text-[#ece6d8] hover:text-[#d9b23c] transition-colors cursor-pointer"
             >
-              [03. Architect]
-            </a>
-            <a
-              href="#tiers"
-              className="grunge-label text-[#ece6d8] hover:text-[#d9b23c] transition-colors cursor-pointer"
-            >
-              [04. Access]
+              [03. Community]
             </a>
           </div>
 
           <div className="flex items-center gap-3">
             <a
-              href={devProfile.githubUrl}
+              href="https://github.com/stefanasemota"
               target="_blank"
               rel="noopener noreferrer"
               className="btn text-xs py-2 px-3"
               aria-label="Stephan Asemota GitHub Profile"
             >
               <GitHubLogoSvg className="w-4 h-4" />
-              <span className="hidden md:inline">{devProfile.handle}</span>
+              <span className="hidden md:inline">@stefanasemota</span>
             </a>
             <a href="#projects" className="btn btn--primary text-xs py-2 px-4">
-              <span>Launch Apps</span>
+              <span>Explore</span>
             </a>
           </div>
         </nav>
@@ -287,45 +271,7 @@ export default function Home() {
         {/* 2. HERO SECTION */}
         <HeroSection />
 
-        {/* 3. FEATURES SECTION (3 PILLAR CARDS) */}
-        <section id="features" className="space-y-8 scroll-mt-24">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-[#55503f] pb-4">
-            <div>
-              <span className="badge">SYSTEM ARCHITECTURE // 3 PILLARS</span>
-              <h2 className="grunge-display text-4xl md:text-5xl font-bold mt-2 text-[#ece6d8]">
-                BUILT FOR SIGNAL, NOT NOISE
-              </h2>
-            </div>
-            <p className="text-sm text-[#a89f8a] max-w-md">
-              Every project under the Sabi AI umbrella is anchored in one of three
-              foundational engineering and cultural pods.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feat, idx) => (
-              <article
-                key={feat.id}
-                className={`card ${idx === 1 ? 'border-[#d9b23c] bg-[#2e2a23]' : ''}`}
-              >
-                <div className="grunge-tape" aria-hidden="true" />
-                <div className="flex items-center justify-between mb-4">
-                  <span className="badge badge--crimson">{feat.code}</span>
-                  <div className="p-2 bg-[#1a1815] border-2 border-[#0c0b09]">
-                    {renderProjectIcon(feat.iconKey)}
-                  </div>
-                </div>
-                <h3 className="grunge-display text-2xl font-bold text-[#ece6d8]">
-                  {feat.title}
-                </h3>
-                <p className="grunge-label text-[#d9b23c] mt-1 mb-3">{feat.subtitle}</p>
-                <p className="text-sm text-[#ece6d8] leading-relaxed">{feat.description}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* 4. ECOSYSTEM PODS SHOWCASE (10 PROJECTS) */}
+        {/* 3. ECOSYSTEM PODS SHOWCASE (10 PROJECTS) */}
         <div id="projects" className="space-y-20 scroll-mt-24">
           {POD_SECTIONS.map((section) => {
             const projects = ProjectsRepository.getProjectsByPod(section.id);
@@ -350,181 +296,6 @@ export default function Home() {
             );
           })}
         </div>
-
-        {/* 5. DEVELOPER / ARCHITECT PROFILE SECTION (@stefanasemota) */}
-        <section id="developer" className="scroll-mt-24">
-          <div className="card bg-[#2e2a23] border-2 border-[#d9b23c] p-8 md:p-10">
-            <div className="grunge-tape" aria-hidden="true" />
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="badge">DEV PROFILE // ARCHITECT</span>
-                  <span className="badge badge--crimson">ROOT GITHUB README LIVE</span>
-                </div>
-
-                <h2 className="grunge-display text-4xl md:text-5xl font-bold text-[#ece6d8]">
-                  {devProfile.name}{' '}
-                  <span className="text-[#d9b23c]">({devProfile.handle})</span>
-                </h2>
-                <p className="grunge-label text-[#a89f8a]">{devProfile.role}</p>
-                <p className="text-base text-[#ece6d8] leading-relaxed max-w-2xl">
-                  {devProfile.bio}
-                </p>
-
-                <ul className="space-y-2 pt-2">
-                  {devProfile.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-[#ece6d8]">
-                      <Check className="w-4 h-4 text-[#d9b23c] shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="lg:col-span-4 flex flex-col gap-4 bg-[#1a1815] border-2 border-[#0c0b09] p-6 shadow-[4px_4px_0_#0c0b09] rotate-1">
-                <div className="flex items-center gap-3 border-b border-dashed border-[#55503f] pb-4">
-                  <div className="p-3 bg-[#c1391f] text-white border-2 border-[#0c0b09]">
-                    <GitHubLogoSvg className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <p className="grunge-display text-xl font-bold text-[#ece6d8]">
-                      GITHUB // ROOT PROFILE
-                    </p>
-                    <p className="grunge-label text-[#d9b23c]">github.com/stefanasemota</p>
-                  </div>
-                </div>
-
-                <p className="text-xs text-[#a89f8a]">
-                  Inspect the root profile README.md, open-source repositories, and the
-                  7-Phase FDD Vibe Coding Guardrail plugin directly on GitHub.
-                </p>
-
-                <a
-                  href={devProfile.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--primary w-full justify-center"
-                >
-                  <GitHubLogoSvg className="w-5 h-5" />
-                  <span>Visit @stefanasemota on GitHub</span>
-                </a>
-
-                <a
-                  href={devProfile.guardrailUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--secondary w-full justify-center text-sm"
-                >
-                  <Terminal className="w-4 h-4" />
-                  <span>vibe-coding-guardrail Repo</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6. OPEN-SOURCE & ECOSYSTEM ACCESS TIERS (3 TIERS, MIDDLE HIGHLIGHTED) */}
-        <section id="tiers" className="space-y-8 scroll-mt-24">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-[#55503f] pb-4">
-            <div>
-              <span className="badge">ACCESS &amp; PATRONAGE // 3 TIERS</span>
-              <h2 className="grunge-display text-4xl md:text-5xl font-bold mt-2 text-[#ece6d8]">
-                OPEN TOOLS. ZERO GATEKEEPING.
-              </h2>
-            </div>
-            <p className="text-sm text-[#a89f8a] max-w-md">
-              Stream live broadcasts for free, adopt the open-source AI guardrail plugin,
-              or fuel the independent server infrastructure.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            {tiers.map((tier) => (
-              <div
-                key={tier.id}
-                className={`card flex flex-col justify-between ${
-                  tier.highlighted
-                    ? 'border-4 border-[#c1391f] bg-[#2e2a23] -translate-y-1'
-                    : ''
-                }`}
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className={tier.highlighted ? 'badge badge--crimson' : 'badge'}>
-                      {tier.badge}
-                    </span>
-                  </div>
-                  <h3 className="grunge-display text-3xl font-bold text-[#ece6d8]">
-                    {tier.name}
-                  </h3>
-                  <div className="border-y-2 border-dashed border-[#55503f] py-3">
-                    <span className="grunge-display text-4xl font-bold text-[#d9b23c]">
-                      {tier.priceLabel}
-                    </span>
-                    <span className="block grunge-label text-[#a89f8a] mt-1">
-                      {tier.cadence}
-                    </span>
-                  </div>
-                  <p className="text-sm text-[#ece6d8]">{tier.description}</p>
-                  <ul className="space-y-2.5 pt-2">
-                    {tier.features.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-[#ece6d8]">
-                        <Check className="w-4 h-4 text-[#d9b23c] shrink-0 mt-1" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-[#55503f]">
-                  <a
-                    href={tier.ctaHref}
-                    target={tier.ctaHref.startsWith('http') ? '_blank' : undefined}
-                    rel={tier.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className={`btn w-full ${
-                      tier.highlighted ? 'btn--primary' : 'btn--secondary'
-                    }`}
-                  >
-                    <span>{tier.ctaLabel}</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 7. FINAL CTA */}
-        <section className="card bg-[#c1391f] text-white border-4 border-[#0c0b09] p-8 md:p-12 text-center space-y-6">
-          <span className="badge">SIGNAL BROADCAST // READY</span>
-          <h2 className="grunge-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
-            TUNE IN OR BUILD WITH THE GUARDRAIL
-          </h2>
-          <p className="max-w-2xl mx-auto text-base md:text-lg text-white/95">
-            Jump straight into live Afrobeat streaming on Mile 2 Radio, translate Pidgin
-            on NaijaSpeak, or enforce the 7-Phase FDD workflow in your repository today.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
-            <a
-              href="https://m2r.sabiai.work/dashboard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--secondary"
-            >
-              <Radio className="w-5 h-5" />
-              <span>Tune Into Mile 2 Radio</span>
-            </a>
-            <a
-              href={devProfile.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn bg-[#0c0b09] text-[#ece6d8] border-[#ece6d8]"
-            >
-              <GitHubLogoSvg className="w-5 h-5" />
-              <span>GitHub: @stefanasemota</span>
-            </a>
-          </div>
-        </section>
       </main>
 
       {/* 8. M2R-ANALOGOUS MULTI-COLUMN GRUNGE FOOTER (NO RELEASE NOTES) */}
@@ -542,9 +313,8 @@ export default function Home() {
                 </span>
               </div>
               <p className="text-sm text-[#a89f8a] max-w-sm leading-relaxed">
-                &ldquo;Sabi&rdquo; /’sah-bee/ (v.) — To understand deeply. Central launchpad for
-                cultural intelligence, community wellness, and deterministic AI engineering
-                tools.
+                &ldquo;Sabi&rdquo; /’sah-bee/ (v.) — To understand deeply. Cultural
+                intelligence, community wellness, and AI engineering tools.
               </p>
               <div className="pt-1">
                 <ShareButton />
@@ -634,17 +404,6 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/stefanasemota/vibe-coding-guardrail"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[#d9b23c] transition-colors inline-flex items-center gap-2"
-                  >
-                    <Terminal className="w-4 h-4 text-[#c1391f]" />
-                    <span>vibe-coding-guardrail</span>
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://asemota.ch/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -674,7 +433,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Infrastructure & Guardrail Bar (M2R Analogous, No Release Notes) */}
+          {/* Bottom Infrastructure Bar */}
           <div className="border-t-2 border-dashed border-[#55503f] pt-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-xs text-[#a89f8a]">
             <div className="space-y-1">
               <p>
@@ -696,19 +455,10 @@ export default function Home() {
                 >
                   Hostpoint
                 </a>
-                . © Sabi AI 2025 - 2026. All rights reserved.
+                . © Sabi AI 2025 - 2027. All rights reserved.
               </p>
               <p>
-                Powered by{' '}
-                <a
-                  href="https://github.com/stefanasemota/vibe-coding-guardrail"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#d9b23c] hover:underline font-semibold"
-                >
-                  aos Vibe Coding Guardrail
-                </a>{' '}
-                | Fuel the Project — Buy me a coffee:{' '}
+                Fuel the Project — Buy me a coffee:{' '}
                 <a
                   href="https://buymeacoffee.com/stephanasex"
                   target="_blank"

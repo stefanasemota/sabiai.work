@@ -1,20 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowDownRight, ShieldCheck, Radio, Sparkles } from 'lucide-react';
+import { ArrowDownRight, Radio, Sparkles } from 'lucide-react';
 
 export function HeroSection() {
   return (
     <section className="relative py-12 md:py-20 border-b-2 border-[#55503f]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        {/* Left Column: Chaotic Overlapping Type & Dual CTAs */}
+        {/* Left Column: Chaotic Overlapping Type & CTA */}
         <div className="lg:col-span-7 space-y-6 text-left">
           <div className="flex flex-wrap items-center gap-3">
             <span className="badge">ZINE // ISSUE 2026.11</span>
             <span className="badge badge--crimson">KNOWLEDGE AT WORK</span>
-            <span className="grunge-label text-[#a89f8a]">
-              [RAY GUN // BRUTALIST EDITION]
-            </span>
           </div>
 
           <div className="relative">
@@ -27,16 +24,15 @@ export function HeroSection() {
                 ECOSYSTEM
               </span>
               <span className="block text-3xl sm:text-4xl md:text-5xl text-[#d9b23c] mt-2 rotate-1">
-                LAUNCHPAD // RAW CULTURAL &amp; AI TOOLS
+                RAW CULTURAL &amp; AI TOOLS
               </span>
             </h1>
           </div>
 
           <p className="text-base md:text-lg text-[#ece6d8] max-w-2xl border-l-4 border-[#c1391f] pl-4 bg-[#24211c]/80 py-2">
-            We build and broadcast projects that celebrate local identity on a
-            global scale. From open-source AI coding guardrails and prompt
-            engineering to live Lagos Afrobeat radio and coldwater telemetry —
-            engineered without corporate polish.
+            Projects that celebrate local identity on a global scale — from
+            prompt engineering and agile tooling to Lagos Afrobeat radio and
+            coldwater telemetry.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -44,15 +40,6 @@ export function HeroSection() {
               <span>Explore Ecosystem Pods</span>
               <ArrowDownRight className="w-5 h-5" />
             </Link>
-            <a
-              href="https://github.com/stefanasemota/vibe-coding-guardrail"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--secondary"
-            >
-              <ShieldCheck className="w-5 h-5" />
-              <span>Vibe Coding Guardrail</span>
-            </a>
           </div>
         </div>
 
@@ -87,7 +74,7 @@ export function HeroSection() {
                   <Sparkles className="w-4 h-4 text-[#d9b23c]" />
                 </div>
                 <p className="grunge-display text-xl text-[#ece6d8] mt-1">
-                  7-PHASE FDD GUARDRAIL + REFINE
+                  ENGINEERING &amp; AGILE TOOLING
                 </p>
               </div>
 
@@ -97,7 +84,7 @@ export function HeroSection() {
                   <Radio className="w-4 h-4 text-white" />
                 </div>
                 <p className="grunge-display text-xl mt-1">
-                  MILE 2 RADIO + NAIJASPEAK + MUMU DON DO
+                  LAGOS RADIO, PIDGIN &amp; HERITAGE
                 </p>
               </div>
 
@@ -107,14 +94,14 @@ export function HeroSection() {
                   <span className="badge">LIVE</span>
                 </div>
                 <p className="grunge-display text-xl text-[#ece6d8] mt-1">
-                  AQUALOG + G-KICKER + KIDS CUP
+                  COLDWATER, SOCCER &amp; EVENTS
                 </p>
               </div>
             </div>
 
             <div className="mt-5 pt-3 border-t-2 border-[#0c0b09] flex items-center justify-between text-xs text-[#a89f8a]">
               <span>NODES: 10 REGISTERED // 7 ACTIVE</span>
-              <span className="text-[#d9b23c] font-bold">EST. 2025–2026</span>
+              <span className="text-[#d9b23c] font-bold">EST. 2025–2027</span>
             </div>
           </div>
         </div>
